@@ -11,11 +11,16 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Standard error response DTO for consistent API error handling.
+ *
+ * Follows RFC 7807 Problem Details for HTTP APIs pattern.
+ */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_NULL) // Exclude null fields from JSON
 @Schema(description = "Standard error response object")
 public class ApiErrorResponse {
 
@@ -42,6 +47,9 @@ public class ApiErrorResponse {
     @Schema(description = "Additional error details")
     private Map<String, Object> details;
 
+    /**
+     * Nested class for field-level validation errors.
+     */
     @Data
     @Builder
     @NoArgsConstructor
@@ -58,5 +66,15 @@ public class ApiErrorResponse {
         @Schema(description = "Validation error message",
                 example = "Description is required")
         private String message;
+    }
+
+    public static ApiErrorResponse of(int status, String error, String message, String path) {
+        return ApiErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(status)
+                .error(error)
+                .message(message)
+                .path(path)
+                .build();
     }
 }

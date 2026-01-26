@@ -45,7 +45,6 @@ public class AlertMapper {
         if (request.getLocationName() != null &&
                 !request.getLocationName().equals(alert.getLocationName())) {
             alert.setLocationName(request.getLocationName());
-            // Reset geo-tagging status when location changes
             alert.setGeoTaggingStatus(GeoTaggingStatus.PENDING);
             alert.setLatitude(null);
             alert.setLongitude(null);
