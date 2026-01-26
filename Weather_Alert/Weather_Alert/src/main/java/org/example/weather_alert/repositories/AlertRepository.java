@@ -1,6 +1,6 @@
 package org.example.weather_alert.repositories;
 
-import org.example.weather_alert.models.Alert;
+import org.example.weather_alert.entities.Alert;
 import org.example.weather_alert.enums.GeoTaggingStatus;
 import org.example.weather_alert.enums.SeverityLevel;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,5 +1,5 @@
 package org.example.weather_alert.repositories;
-import org.example.weather_alert.models.Role;
+import org.example.weather_alert.entities.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

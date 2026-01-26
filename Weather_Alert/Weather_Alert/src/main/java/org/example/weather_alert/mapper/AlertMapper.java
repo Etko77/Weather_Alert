@@ -1,8 +1,11 @@
-package org.example.weather_alert.dto;
+package org.example.weather_alert.mapper;
 
+import org.example.weather_alert.dto.AlertResponse;
+import org.example.weather_alert.dto.CreateAlertRequest;
+import org.example.weather_alert.dto.UpdateAlertRequest;
 import org.example.weather_alert.enums.GeoTaggingStatus;
-import org.example.weather_alert.models.Alert;
-import org.example.weather_alert.models.User;
+import org.example.weather_alert.entities.Alert;
+import org.example.weather_alert.entities.User;
 import org.springframework.stereotype.Component;
 
 @Component

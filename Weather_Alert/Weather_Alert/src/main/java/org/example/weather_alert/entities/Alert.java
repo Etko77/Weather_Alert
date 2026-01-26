@@ -1,4 +1,4 @@
-package org.example.weather_alert.models;
+package org.example.weather_alert.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
