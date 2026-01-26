@@ -1,4 +1,4 @@
-package org.example.weather_alert.models.enums;
+package org.example.weather_alert.enums;
 
 public enum GeoTaggingStatus {
     /**

@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.weather_alert.models.enums.SeverityLevel;
+import org.example.weather_alert.enums.SeverityLevel;
 
 @Data
 @Builder
