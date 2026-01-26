@@ -10,12 +10,6 @@ import org.example.weather_alert.enums.SeverityLevel;
 
 import java.time.LocalDateTime;
 
-/**
- * DTO for alert responses.
- *
- * This is what the API returns to clients, separating the internal
- * entity structure from the public API contract.
- */
 @Data
 @Builder
 @NoArgsConstructor
