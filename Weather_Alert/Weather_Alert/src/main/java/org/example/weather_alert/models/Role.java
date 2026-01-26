@@ -7,10 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-/**
- * Entity representing a role in the system (e.g., ADMIN, USER).
- * Used for role-based access control (RBAC).
- */
 @Entity
 @Table(name = "roles")
 @Data

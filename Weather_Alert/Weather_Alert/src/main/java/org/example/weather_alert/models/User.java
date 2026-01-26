@@ -56,10 +56,6 @@ public class User implements UserDetails {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    /**
-     * Many-to-Many relationship with Role.
-     * A user can have multiple roles (e.g., both ADMIN and USER).
-     */
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
@@ -80,10 +76,6 @@ public class User implements UserDetails {
         updatedAt = LocalDateTime.now();
     }
 
-    /**
-     * Converts roles to Spring Security GrantedAuthority objects.
-     * This is required by the UserDetails interface.
-     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles.stream()
