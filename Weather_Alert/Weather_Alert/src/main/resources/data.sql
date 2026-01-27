@@ -169,3 +169,6 @@ SELECT * FROM user_roles;
 UPDATE users
 SET password = '$2a$10$zRoQ6bMQYS/hlLY5Qbknm.M43VK.3ScuSbj5SsPE.B0R0mDwdXrey'
 WHERE username = 'admin';
+UPDATE users
+SET password = '$2a$10$yccuZ.t3Hv3cVSB1SoGCKuo/isERd2G7uPmTTfKerSkIoCbFpl86G'
+WHERE username = 'user';
