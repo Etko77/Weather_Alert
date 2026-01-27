@@ -163,3 +163,9 @@ FROM users u WHERE u.username = 'user2';
 -- JOIN user_roles ur ON u.id = ur.user_id
 -- JOIN roles r ON r.id = ur.role_id
 -- GROUP BY u.username;
+SELECT * FROM users;
+SELECT * FROM roles;
+SELECT * FROM user_roles;
+UPDATE users
+SET password = '$2a$10$zRoQ6bMQYS/hlLY5Qbknm.M43VK.3ScuSbj5SsPE.B0R0mDwdXrey'
+WHERE username = 'admin';
