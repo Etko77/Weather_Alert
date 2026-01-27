@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: weather-alert-service
+
+  # ==========================================
+  # MariaDB Database Configuration
+  # ==========================================
+  datasource:
+    url: jdbc:mysql://localhost:3308/weather_alert?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root1235
+
+  # JPA Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  # SQL Initialization (optional - set to 'never' if using ddl-auto: update)
+  sql:
+    init:
+      mode: never
+
+# Server Configuration
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# JWT Configuration
+jwt:
+  secret: mySecretKeyForJWTTokenGenerationMustBeAtLeast256BitsLongForHS256Algorithm
+  expiration: 86400000
+
+# Geocoding API Configuration (OpenStreetMap Nominatim)
+geocoding:
+  api:
+    base-url: https://nominatim.openstreetmap.org
+    user-agent: WeatherAlertService/1.0
+    rate-limit-ms: 1000
+
+# Async Configuration
+async:
+  core-pool-size: 2
+  max-pool-size: 5
+  queue-capacity: 100
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    org.example.weather_alert: DEBUG
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Springdoc OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
