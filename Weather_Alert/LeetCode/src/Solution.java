@@ -33,6 +33,32 @@ class Result {
         return duplicates.size();
 
     }
+    public static List<String> matchingBraces(List<String> braces) {
+        List<String> answers = new ArrayList<>();
+        for(String currentBraces: braces) {
+
+        }
+    }
+    public static String rollingString(String s, List<String> operations) {
+        char[] chars = s.toCharArray();
+
+        for (String op : operations) {
+            String[] parts = op.split(" ");
+            int i = Integer.parseInt(parts[0]);
+            int j = Integer.parseInt(parts[1]);
+            char direction = parts[2].charAt(0);
+
+            for (int index = i; index <= j; index++) {
+                if (direction == 'R') {
+                    chars[index] = (char) ((chars[index] - 'a' + 1) % 26 + 'a');
+                } else if (direction == 'L') {
+                    chars[index] = (char) ((chars[index] - 'a' - 1 + 26) % 26 + 'a');
+                }
+            }
+        }
+
+        return new String(chars);
+    }
 
 }
 
@@ -41,23 +67,24 @@ public class Solution {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int numbersCount = Integer.parseInt(bufferedReader.readLine().trim());
+        int bracesCount = Integer.parseInt(bufferedReader.readLine().trim());
 
-        List<Integer> numbers = IntStream.range(0, numbersCount).mapToObj(i -> {
+        List<String> braces = IntStream.range(0, bracesCount).mapToObj(i -> {
                     try {
-                        return bufferedReader.readLine().replaceAll("\\s+$", "");
+                        return bufferedReader.readLine();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
                 })
-                .map(String::trim)
-                .map(Integer::parseInt)
                 .collect(toList());
 
-        int result = Result.countDuplicate(numbers);
+        List<String> result = Result.matchingBraces(braces);
 
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
+        bufferedWriter.write(
+                result.stream()
+                        .collect(joining("\n"))
+                        + "\n"
+        );
 
         bufferedReader.close();
         bufferedWriter.close();
