@@ -36,9 +36,30 @@ class Result {
     public static List<String> matchingBraces(List<String> braces) {
         List<String> answers = new ArrayList<>();
         for(String currentBraces: braces) {
-
+            Stack<Character> stack = new Stack<>();
+            boolean isBalanced = true;
+            for(char c : currentBraces.toCharArray()){
+                if(c == '(' || c == '[' || c == '{'){
+                    stack.push(c);
+                }else{
+                    if(stack.isEmpty()){
+                        isBalanced = false;
+                        break;
+                    }
+                    char top = stack.pop();
+                    if((c == ')' && top != '(') || (c == ']'
+                            && top != '[') || (c == '}'
+                            && top != '{')) {
+                    isBalanced = false;
+                    break;
+                    }
+                }
+            }
+            answers.add((isBalanced && stack.isEmpty()) ? "YES" : "NO");
         }
+        return answers;
     }
+    public static
     public static String rollingString(String s, List<String> operations) {
         char[] chars = s.toCharArray();
 
