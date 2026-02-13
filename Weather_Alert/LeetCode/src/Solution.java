@@ -59,7 +59,17 @@ class Result {
         }
         return answers;
     }
-    public static
+
+    public static int lengthOfLastWord(String s){
+        String [] arrayOfWords = s.split(" ");
+        int longestWordLength = 0;
+        for(int i = 0; i< arrayOfWords.length; i++){
+            if(longestWordLength < arrayOfWords[i].length()){
+                longestWordLength = arrayOfWords[i].length();
+            }
+        }
+        return longestWordLength;
+    }
     public static String rollingString(String s, List<String> operations) {
         char[] chars = s.toCharArray();
 
