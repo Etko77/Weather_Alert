@@ -60,7 +60,7 @@ class Result {
         return answers;
     }
 
-    public static int lengthOfLastWord(String s){
+    public static int lengthOfLongestWord(String s){
         String [] arrayOfWords = s.split(" ");
         int longestWordLength = 0;
         for(int i = 0; i< arrayOfWords.length; i++){
@@ -69,6 +69,10 @@ class Result {
             }
         }
         return longestWordLength;
+    }
+    public static int lengthOfLastWord(String s){
+        String [] arrayOfWords = s.split(" ");
+        return arrayOfWords[arrayOfWords.length-1].length();
     }
     public static String rollingString(String s, List<String> operations) {
         char[] chars = s.toCharArray();
